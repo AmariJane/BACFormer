@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from datasets.dataset_synapse import Synapse_dataset
 from utils import test_single_volume
-from networks.BACFormer import MISSFormer
+from networks.BACFormer import BACFormer
 from trainer import trainer_synapse
 
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     args.z_spacing = dataset_config[dataset_name]['z_spacing']
     args.is_pretrain = True
 
-    net = MISSFormer(num_classes=args.num_classes).cuda(0)
+    net = BACFormer(num_classes=args.num_classes).cuda(0)
 
     snapshot = os.path.join(args.output_dir, 'your_pth_file')
 
